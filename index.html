@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Design</title>
-    </head>
-    <body>
-        <img src = "imgs/thecat.jpg">
-        <p>Some cool shit</p>
-    </body>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel=stylesheet type="text/css" href="style.css">
+
+<title>Ricette Experience</title>
+
+</head>
+<body>
+
+<!-- Contenitore principale -->
+<div class="xp-wrapper">
+
+  <!-- Canvas Experience -->
+  <div id="experienceView" class="view active">
+    <div class="xp_section_collection" id="xpCollection">
+      <!-- Items generati dinamicamente via JS -->
+    </div>
+  </div>
+
+  <!-- Grid View -->
+  <div id="gridView" class="view">
+    <h1 class="grid-title">Ricette consigliate</h1>
+    <p class="grid-subtitle">Seleziona la tua ricetta preferita</p>
+    <div class="grid-container" id="gridContainer">
+      <!-- Items generati dinamicamente via JS -->
+    </div>
+  </div>
+
+  <!-- Toggle centrale -->
+  <div class="toggle-wrapper">
+    <button id="toggleExplore" class="toggle-btn active">Explore</button>
+    <button id="toggleGrid" class="toggle-btn">Grid</button>
+  </div>
+
+  <!-- Barra di ricerca -->
+  <div class="search-wrapper">
+    <input type="text" id="searchInput" placeholder="Cerca ricetta...">
+  </div>
+</div>
+<!-- Side panel ricetta -->
+<div id="recipePanel" class="recipe-panel">
+  <button id="closePanel" class="close-btn">×</button>
+  <div class="recipe-content">
+    <h2 id="recipeTitle"></h2>
+    <img id="recipeImg" src="" alt="">
+    <p id="recipeDescription"></p>
+    <ul id="recipeIngredients"></ul>
+    <p id="recipeInstructions"></p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+
+
+<script type="text/javascript" src="design.js"></script>
+</body>
 </html>
