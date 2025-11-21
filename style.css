@@ -1,5 +1,7 @@
-* { box-sizing:border-box; margin:0; padding:0; font-family:sans-serif; }
-  body { background:#f8f8f8; overflow:hidden; }
+* { box-sizing:border-box; 
+    margin:0; padding:0; 
+    font-family: "Manrope", sans-serif;}
+  body { background: #FFF8EF; overflow:hidden; }
 
 
 
@@ -42,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   opacity: 0; /* invisibile inizialmente */
-  transition: opacity 0.5s ease; /* fade-in smooth */
+  transition: opacity 0.8s ease; /* fade-in smooth */
 }
 
 .xp_recipes-collection_item img {
@@ -68,7 +70,6 @@
 }
 .grid-item img {
   width: 100%;
-  border-radius: 8px;
 }
 .grid-title { text-align: center; margin-top: 40px; font-size: 2rem; }
 .grid-subtitle { text-align: center; margin-bottom: 20px; color: #666; }
@@ -79,21 +80,21 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+ 
   z-index: 999;
 }
 .toggle-btn {
   padding: 10px 20px;
-  border-radius: 6px;
-  border: 1px solid #333;
-  background: #fff;
+  border-radius: 2px;
+  border: 0.5px solid #333;
+  background: #FFF8EF;
   cursor: pointer;
   font-weight: bold;
   transition: 0.2s;
 }
 .toggle-btn.active {
   background: #333;
-  color: #fff;
+  color: #FFF8EF;
 }
 
 /* --- Barra di ricerca --- */
@@ -107,9 +108,10 @@
 }
 .search-wrapper input {
   width: 100%;
+  background: transparent ;
   padding: 10px 15px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   font-size: 1rem;
 }
 
@@ -119,35 +121,42 @@
   .search-wrapper { bottom: 20px; top: auto; }
 }
 @media (min-width: 769px) {
-  .toggle-wrapper { top: 40%; }
-  .search-wrapper { bottom: 20px; }
+  .toggle-wrapper { bottom: 10%; }
+  .search-wrapper { bottom: 40px; }
 }
 
 
 .recipe-panel {
+margin-left:20px;
   position: fixed;
   top: 0;
   right: -100%;
-  width: 350px;
+  width: 40%;
   height: 100%;
-  background: #fff;
-  box-shadow: -4px 0 12px rgba(0,0,0,0.3);
+  background: #FFF8EF;
   transition: right 0.3s ease;
   overflow-y: auto;
   z-index: 1000;
-  padding: 20px;
+  padding: 5%;
 }
-
+.recipe-panel #recipeImg{
+    width: 70%; 
+    height: auto;
+}
 .recipe-panel.active {
   right: 0;
+  border-left: 1px solid #333
 }
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  top: 10%;
+  left: 6%;
+  padding: 0.3% 1.4%;
+  background: #FFF8EF;
+  border:none;
+  font-size: 2.3rem;
+  font-weight: lighter;
   cursor: pointer;
+  z-index: 3000;
 }

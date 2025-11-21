@@ -10,7 +10,7 @@ let itemsExp = [];
 let offsetX = 0, offsetY = 0;
 
 // Carica CSV
-Papa.parse('recipes.csv', {
+Papa.parse('recipe.csv', {
   download: true,
   header: true,
   complete: function(results) {
@@ -26,9 +26,26 @@ function initExperience() {
       const r = recipesData[(row * columns + col) % recipesData.length];
       const item = document.createElement('div');
       item.className = 'xp_recipes-collection_item';
-      item.style.opacity = 0; // invisibile inizialmente
+      item.style.opacity = 0;
       item.style.transition = 'opacity 0.5s ease';
-      item.innerHTML = `<img src="${r.img}" alt="${r.title}"><div class="title">${r.title}</div>`;
+
+      // IMG con fade-in reale
+      const img = document.createElement("img");
+      img.src = r.img;
+      img.alt = r.title;
+
+      // <<< AGGIUNTO: fade-in solo quando il file è caricato
+      img.onload = () => {
+        item.style.opacity = 1;
+      };
+      // <<< FINE AGGIUNTA
+
+      item.appendChild(img);
+
+      const title = document.createElement("div");
+      title.className = "title";
+      title.textContent = r.title;
+      item.appendChild(title);
 
       let x = col * cellWidth + (row % 2) * (cellWidth / 2);
       let y = row * (cellHeight - offsetYPerRow);
@@ -41,16 +58,24 @@ function initExperience() {
       collection.appendChild(item);
       itemsExp.push(item);
 
-      // Click per aprire panel
-      item.addEventListener('click', () => openRecipePanel(recipesData[item.dataset.index]));
+      item.addEventListener('click', () =>
+        openRecipePanel(recipesData[item.dataset.index])
+      );
     }
   }
 
-  // Observer per fade-in quando entra in viewport
+  // Observer fade-in per elementi riciclati
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
+        const img = entry.target.querySelector("img");
+
+        // <<< AGGIUNTO: se l’immagine è già caricata → fade-in subito
+        if (img.complete) {
+          entry.target.style.opacity = 1;
+        }
+        // <<< FINE AGGIUNTA
+
         observer.unobserve(entry.target);
       }
     });
