@@ -9,20 +9,43 @@ const activeFilters = { meal: [], time: [], allergens: [] };
 
 function populateGrid(data) {
     gridContainer.innerHTML = '';
+
     data.forEach(recipe => {
         const div = document.createElement('div');
         div.className = 'grid-item';
+
+        const difficultyColor =
+            recipe.difficulty === "easy" ? "#37B35C" :
+            recipe.difficulty === "medium" ? "#FFD93D" :
+            recipe.difficulty === "hard" ? "#D16643":
+            "#a8a6a6ff";
+
         div.innerHTML = `
-            <span class="time">⏱ ${recipe.time || 'N/A'}</span>
+            <div class="difficulty-bar" style="background:${difficultyColor}"></div>
+
+            <div class="top-right-info">
+                <div class="info-box">${recipe.time || "N/A"}</div>
+                <div class="info-box">⏱</div>
+            </div>
+
             <img src="${recipe.img}" alt="${recipe.title}">
-            <h3>${recipe.title}</h3>
+
+            <div class="bottom-row">
+                <h3>${recipe.title}</h3>
+                <div class="arrow">➜</div>
+            </div>
         `;
-        div.addEventListener('click', () => openRecipePanel(recipe));
+
+        div.querySelector(".arrow").addEventListener("click", () => {
+            openRecipePanel(recipe);
+        });
+
         gridContainer.appendChild(div);
     });
 
     setupFilters();
 }
+
 
 function setupFilters() {
     // Mostra/chiudi filtro

@@ -269,23 +269,10 @@ cursor: pointer;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 gap: 20px;
-padding: 0 5%;
+padding: 05%;
 box-sizing: border-box;
 }
 
-.grid-item {
-border: 1px solid #333;
-border-radius: 2px;
-padding: 10px;
-}
-.grid-item img {
-width: 100%;
-height: auto;
-display: block;
-}
-
-.grid-title { text-align: center; margin-top: 40px; font-size: 2rem; }
-.grid-subtitle { text-align: center; margin-bottom: 20px; color: #666; }
 
 /* Wrapper e Views */
 .xp-wrapper {
@@ -337,44 +324,67 @@ margin-top: 6px;
 font-weight: bold;
 }
 
-/* Recipe Panel */
-.recipe-panel {
-margin-left: 20px;
-position: fixed;
-top: 0;
-right: -100%;
-width: 40%;
-height: 100%;
-background: #FFF8EF;
-transition: right 0.3s ease;
-overflow-y: auto;
-z-index: 1000;
-padding: 5%;
-}
-.recipe-panel #recipeImg { width: 70%; height: auto; }
-.recipe-panel.active { right: 0; border-left: 1px solid #333; }
 
-.close-btn {
-position: absolute;
-top: 10%;
-left: 6%;
-padding: 0.3% 1.4%;
-background: #FFF8EF;
-border: none;
-font-size: 2.3rem;
-font-weight: lighter;
-cursor: pointer;
-z-index: 3000;
+
+.grid-item {
+    position: relative;
+    border: 1px solid #333;
+    border-radius: 2px;
+    padding: 0;
+    background: #FFF8EF;
+    overflow: hidden;
 }
 
-#experienceView { position: relative; }
-#xpCollection { position: relative; z-index: 1; }
-#xpOverlay {
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0);
-pointer-events: none;
-z-index: 9998;
-opacity: 0;
+
+.difficulty-bar {
+  border-radius: 8px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 6px;
+    height: 40px;
 }
-#xpOverlay.active { pointer-events: all; opacity: 1; }
+
+.top-right-info {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 5px;
+}
+
+.info-box {
+    background: #FFF8EF;
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2px;
+    height: 42px;
+    font-size: 0.8rem;
+}
+
+/* Immagine */
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Basso: titolo + freccia */
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+}
+
+.bottom-row h3 {
+    font-size: 1rem;
+    margin: 5%;
+}
+
+.arrow {
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding-right: 5%;
+}
