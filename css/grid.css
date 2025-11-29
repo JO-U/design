@@ -1,0 +1,109 @@
+
+/* Grid Items */
+.grid-layout {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+padding: 0 5%;
+box-sizing: border-box;
+}
+
+/* Canvas Collection */
+.xp_section_collection {
+position: absolute;
+top: 0;
+left: 0;
+width: 200%;
+height: 200%;
+cursor: grab;
+}
+
+/* Experience Items */
+.xp_recipes-collection_item {
+position: absolute;
+width: 320px;
+height: 250px;
+display: flex;
+flex-direction: column;
+align-items: center;
+opacity: 0;
+transition: opacity 0.8s ease;
+}
+
+.xp_recipes-collection_item img {
+width: 100%;
+height: auto;
+object-fit: cover;
+border-radius: 12px;
+}
+
+.xp_recipes-collection_item .title {
+text-align: center;
+margin-top: 6px;
+font-weight: bold;
+}
+
+
+
+.food-item {
+    position: relative;
+    border: 1px solid #333;
+    border-radius: 2px;
+    padding: 0;
+    background: #FFF8EF;
+    overflow: hidden;
+}
+
+
+.difficulty-bar {
+  border-radius: 8px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 6px;
+    height: 40px;
+}
+
+.top-right-info {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 5px;
+}
+
+.info-box {
+    background: #FFF8EF;
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2px;
+    height: 42px;
+    font-size: 0.8rem;
+}
+
+/* Immagine */
+.food-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Basso: titolo + freccia */
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+}
+
+.bottom-row h3 {
+    font-size: 1rem;
+    margin: 5%;
+}
+
+.arrow {
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding-right: 5%;
+}

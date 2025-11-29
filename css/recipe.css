@@ -1,0 +1,81 @@
+/* Layout base */
+.recipe-body {
+    font-family: "Instrument Sans", sans-serif;
+    background: #fafafa;
+    padding: 20px;
+}
+
+.recipe-wrapper {
+    max-width: 860px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transform-origin: top;
+}
+
+/* Animazione slide-in */
+.slide-in {
+    animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.breadcrumb a {
+    color: #777;
+    text-decoration: none;
+}
+.breadcrumb span {
+    font-weight: bold;
+}
+
+/* Bottone back */
+.back-btn {
+    border: none;
+    background: #eee;
+    padding: 8px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.back-btn:hover {
+    background: #ddd;
+}
+
+/* Immagine ricetta */
+.recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+/* Sezioni */
+.recipe-section {
+    margin: 25px 0;
+}
+
+.recipe-section h2 {
+    margin-bottom: 10px;
+}
+
+/* Griglia info */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+/* Istruzioni più leggibili */
+.instructions-text {
+    line-height: 1.6;
+}

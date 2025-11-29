@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricetta</title>
+<link rel="stylesheet" href="css/gen.css">
+<link rel="stylesheet" href="css/recipe.css">
+
+</head>
+<body class="recipe-body">
+
+<div class="recipe-wrapper slide-in">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> › 
+        <a href="index.html#ricette">Ricette</a> › 
+        <span id="breadcrumbTitle"></span>
+    </nav>
+
+    <button onclick="history.back()" class="back-btn">← Torna indietro</button>
+
+    <h1 id="recipeTitle"></h1>
+
+    <img id="recipeImg" class="recipe-image" alt="Immagine ricetta">
+
+    <section class="recipe-section">
+        <h2>Descrizione</h2>
+        <p id="recipeDesc"></p>
+    </section>
+
+    <section class="recipe-section">
+        <h2>Ingredienti</h2>
+        <ul id="recipeIngredients"></ul>
+    </section>
+
+    <section class="recipe-section">
+        <h2>Istruzioni</h2>
+        <p id="recipeInstructions" class="instructions-text"></p>
+    </section>
+
+    <section class="recipe-section info-grid">
+        <div><strong>Tempo:</strong> <span id="recipeTime"></span></div>
+        <div><strong>Difficoltà:</strong> <span id="recipeDifficulty"></span></div>
+        <div><strong>Allergeni:</strong> <span id="recipeAllergens"></span></div>
+        <div><strong>Pasto:</strong> <span id="recipeMeal"></span></div>
+    </section>
+
+</div>
+
+<script>
+    // Legge lo slug dalla query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const recipeId = urlParams.get("id");
+
+    // Funzione per generare lo slug
+    function generateSlug(title) {
+        return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    }
+
+    // Carica JSON
+    fetch('recipes.json')
+        .then(res => res.json())
+        .then(data => {
+            // Flatten: oggetto categorie -> array unico
+            const recipesArray = Object.values(data).flat();
+
+            // Trova la ricetta corrispondente allo slug
+            const recipe = recipesArray.find(r => generateSlug(r.title) === recipeId);
+
+            if(!recipe){
+                document.body.innerHTML = "<h2>Ricetta non trovata.</h2>";
+                return;
+            }
+
+            // Popola la pagina
+            document.getElementById("breadcrumbTitle").textContent = recipe.title;
+            document.getElementById("recipeTitle").textContent = recipe.title;
+            document.getElementById("recipeImg").src = recipe.img;
+            document.getElementById("recipeImg").alt = recipe.title;
+            document.getElementById("recipeDesc").textContent = recipe.description;
+            document.getElementById("recipeInstructions").textContent = recipe.instructions;
+
+            const ingList = document.getElementById("recipeIngredients");
+            recipe.ingredients.forEach(i => {
+                const li = document.createElement("li");
+                li.textContent = i;
+                ingList.appendChild(li);
+            });
+
+            document.getElementById("recipeTime").textContent = recipe.time || "N/A";
+            document.getElementById("recipeDifficulty").textContent = recipe.difficulty || "N/A";
+            document.getElementById("recipeMeal").textContent = recipe.mealType || "N/A";
+            document.getElementById("recipeAllergens").textContent = recipe.allergens?.join(", ") || "N/A";
+        })
+        .catch(err => console.error("Errore nel caricamento di recipes.json:", err));
+</script>
+
+</body>
+</html>
