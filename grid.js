@@ -62,7 +62,7 @@ function populateGrid(data) {
                 <div class="difficulty-bar" style="background:${difficultyColor}"></div>
                 <div class="top-right-info">
                     <div class="info-box">${recipe.time || "N/A"}</div>
-                    <div class="info-box">⏱</div>
+                    <div class="info-box"><i class="fa fa-clock-o" style="color:#FFF8EF"></i></div>
                 </div>
                 <img src="${imgSrc}" alt="${recipe.title}">
                 <div class="bottom-row">
@@ -88,11 +88,13 @@ function populateGrid(data) {
                             <p><strong>Allergeni:</strong> ${recipe.allergens?.join(", ") || "Nessuno"}</p>
                             <div class="top-right-info">
                                 <div class="info-box">${recipe.time || "N/A"}</div>
-                                <div class="info-box">⏱</div>
+                                <div class="info-box"><i class="fa fa-clock-o" style="color:#FFF8EF"></i></div>
                             </div>
                         </div>
-                        <p class="description">${recipe.description}</p>
-                        <div class="arrow">➜</div>
+                        <div class="descAndArrow">
+                            <p class="description">${recipe.description}</p>
+                            <div class="arrow">➜</div>
+                        </div>
                     </div>
                 </div>
             `;

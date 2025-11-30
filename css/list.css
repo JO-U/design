@@ -1,86 +1,150 @@
+/* ------------------------------ */
+/*   🔷 LAYOUT LISTA — MOBILE     */
+/* ------------------------------ */
 
-/* Layout lista */
 @media (max-width: 768px) {
+
+    .list-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 0 4%;
+    }
+
     .list-layout .food-item {
-    display: flex !important;
-    flex-direction: column !important;
-}
-.list-layout .food-item img {
-    width: 100%;
-    height: auto;
-    margin:0; 
-    padding: 0;
-    border-radius: 2px 2px 0 0;
-    border-bottom: 1px solid #333;  
+        display: flex !important;
+        flex-direction: column !important;
+        border: 1px solid #333;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .list-layout .food-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-bottom: 1px solid #333;
+    }
+
+    .list-right {
+        padding: 3% ;
+    }
+
+    .list-right h3 {
+                font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .descAndArrow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+
+    .list-layout p {
+        margin: 6px 0;
+        line-height: 1.4;
+        padding: 0%
+    }
+
+    .arrow {
+        font-size: 22px;
+        cursor: pointer;
+        margin-left: 15px;
+    }
 }
 
-}
+/* ------------------------------ */
+/*   🔷 LAYOUT LISTA — DESKTOP    */
+/* ------------------------------ */
+
 @media (min-width: 769px) {
 
+    .list-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 5%;
+    }
+
+    .list-layout .food-item {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid #333;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .list-layout .food-item img {
+        width: 30%;
+        height: 260px;
+        object-fit: cover;
+        border-right: 1px solid #333;
+    }
+
+    .list-right {
+        padding: 30px;
+        flex: 1;
+    }
+
+    .list-right h3 {
+        margin-top: 0;
+        padding-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .list-layout p {
+        margin: 8px 0;
+        line-height: 1.5;
+    }
+
+    .descAndArrow {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .arrow {
+        font-size: 26px;
+        cursor: pointer;
+        padding-left: 10px;
+    }
 }
 
-
-.list-layout {
-    display: flex;
-    flex-direction: column !important;
-    gap: 15px;
-    padding:0 5%;
-}
-
-.list-layout .food-item {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    border: 1px solid #333;
-
-}
-
-.list-layout .food-item img {
-    width: 30%;
-    height: auto;
-    margin:0; 
-    padding: 0;
-    border-radius: 2px 0 0 2px;
-    border-right: 1px solid #333;  
-}
-
-.infoList{margin: 5%;
-}
+/* ------------------------------ */
+/*   🔶 ELEMENTI IN COMUNE       */
+/* ------------------------------ */
 
 .difficulty-wrapper {
-    display: inline-block;       
+    display: inline-block;
     width: fit-content;
+    margin-bottom: 8px;
 }
 
 .difficulty-text {
-    display: inline-block;           
-    white-space: nowrap;   
-    
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .difficulty-bar-list {
     height: 4px;
-    width: 100%;      
+    width: 100%;
     margin-top: 3px;
     border-radius: 2px;
 }
 
-
-.list-right{
-    padding:  5%
-}
-.list-layout .list-right h3 {
-    margin-top: 0;
-    padding-bottom:5px;
-    font-size: 20px;
+.top-right-info {
+    display: flex;
+    gap: 6px;
+    margin: 10px 0 14px 0;
 }
 
-.list-layout p{padding:5px 0}
-
-.list-layout .arrow {
-    margin-top: 10px;
-    right:0;
-    cursor: pointer;
+.info-box {
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    border: 1px solid #333;
 }
-
-
