@@ -7,12 +7,12 @@
 <link rel="stylesheet" href="css/list.css">
 <link rel="stylesheet" href="css/grid.css">
 
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <title>Ricette Experience</title>
 
 </head>
@@ -29,7 +29,6 @@
   
 </div>
 
-  <!-- Grid View -->
 <div id="gridView" >
     <div id="titleandsuch">
       <h1 class="grid-title">Ispirazioni per i Pasti <br>di Ogni Giorno</h1>
@@ -38,48 +37,7 @@
     
     <div id="filtersAndSearch">
       <h2>Tutte le Ricette</h2>
-      <div class="filters-left">
-        <div id="selectedFilters"></div>
-        <div class="filters-row">
-          
-          <button id="showFiltersBtn">Filtri</button>
-          <button id="closeFiltersBtn" style="display:none;">✕</button>
-
-          <div id="filterBar" style="display:none;">
-            <div class="filter-category" data-cat="meal">
-              <span class="cat-title">Pasto</span>
-              <div class="filter-options">
-                <div class="filter-option">Colazione</div>
-                <div class="filter-option">Pranzo</div>
-                <div class="filter-option">Cena</div>
-                <div class="filter-option">Snack</div>
-              </div>
-            </div>
-
-            <div class="filter-category" data-cat="time">
-              <span class="cat-title">Tempo</span>
-              <div class="filter-options">
-                <div class="filter-option">10 min</div>
-                <div class="filter-option">10–20 min</div>
-                <div class="filter-option">20–40 min</div>
-                <div class="filter-option">40 min</div>
-              </div>
-            </div>
-
-            <div class="filter-category" data-cat="allergens">
-              <span class="cat-title">Allergeni</span>
-              <div class="filter-options">
-                <div class="filter-option">Glutine</div>
-                <div class="filter-option">Lattosio</div>
-                <div class="filter-option">Frutta a guscio</div>
-                <div class="filter-option">Vegano</div>
-              </div>
-            </div>
-
-            <button id="resetFilters" style="display:none;">Reset</button>
-          </div>
-        </div>
-      </div>
+      
     </div>
 
 
@@ -95,6 +53,7 @@
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
 
 
-<script type="text/javascript" src="grid.js"></script>
+<script type="module" src="js/main.js"></script>
+
 </body>
 </html>

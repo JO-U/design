@@ -13,25 +13,24 @@ box-sizing: border-box;
     position: relative;
     border: 1px solid #333;
     border-radius: 2px;
-    padding: 0;
+    padding:0 5% 4% 4%;
     background: #FFF8EF;
     overflow: hidden;
 }
 
-
 .difficulty-bar {
   border-radius: 8px;
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 6%;
+    left: 8%;
     width: 4.5px;
-    height: 32px;
+    height: 30px;
 }
 
 .top-right-info {
     position: absolute;
-    top: 5%;
-    right: 5%;
+    top: 3%;
+    right: 7%;
     display: flex;
     gap: 5px;
 }

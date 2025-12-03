@@ -1,0 +1,174 @@
+.carousel-page {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/*PORTATA */
+.carousel-header {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    justify-content:center;
+    gap: 15px;
+}
+
+.carousel-btn{
+    border: solid 1px #333;
+    border-radius: 50%;
+    align-content: center;
+    padding:10px 13px 10px 14.5px;
+    font-size: 11px;
+}
+
+.carousel-title {
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.carousel-title span {
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: 1px solid #333;
+    border-radius:50%;
+    padding:15px 16px
+}
+
+/* carosello */
+.carousel-track-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* CARD*/
+.food-item {
+    min-width: 300px;
+    position: relative;
+    border: 1px solid #333;
+    border-radius: 2px;
+    padding: 0;
+    background: #FFF8EF;
+    overflow: hidden;
+}
+
+.food-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Difficoltà */
+.topInfo{display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding-top:5%;
+}
+.difficulty-bar {top:4.2%;
+    left:5%;
+    border-radius: 8px;
+    position: absolute;
+    width: 3px;
+    height: 29px;
+}
+
+/* Tempo */
+.top-right-info {
+    position: absolute;
+    display: flex;
+    gap: 5px;
+    top:1%;
+    right:5%;
+}
+
+.info-box {
+    background-color: #333;
+    color: #FFF8EF;
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+    border-radius: 2px;
+    height: 32px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.fa-clock-o{color:#FFF8EF}
+
+/* testo */
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 7% 8% 7%;
+}
+
+.bottom-row h3 {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.arrow {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+.carousel-track-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* 3 CARDS ALLINEATE */
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.35s ease;
+}
+
+/* SEMI-VISIBILI AI LATI */
+.carousel-track::before,
+.carousel-track::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.carousel-track::before {
+    left: 0;
+    background: linear-gradient(to right, #fff8efdd, transparent);
+}
+
+.carousel-track::after {
+    right: 0;
+    background: linear-gradient(to left, #fff8efdd, transparent);
+}
+.food-item {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.food-item.center-card {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.food-item.side-card {
+    filter: blur(2px) opacity(0.6);
+}
+

@@ -1,4 +1,3 @@
-// Legge il parametro layout dalla query string
 const urlParams = new URLSearchParams(window.location.search);
 let layoutVersion = urlParams.get("layout") || "grid"; // default "grid"
 
@@ -20,21 +19,17 @@ function openRecipePage(recipe) {
     window.location.href = `recipe.html?id=${slug}`;
 }
 
-fetch('recipes.json')
-    .then(res => res.json())
-    .then(data => {
-        const recipesArray = Object.values(data).flat();
-        window.allRecipes = recipesArray;
-
-        populateGrid(recipesArray);
-    })
-    .catch(err => console.error("Errore nel caricamento di recipes.json:", err));
+export function init(recipes){
+    const recipesArray = recipes || window.allRecipes || [];
+    window.allRecipes = recipesArray;
+    populateGrid(recipesArray);
+}
 
 // generariamo la griglia
 function populateGrid(data) {
     gridContainer.innerHTML = '';
 
-    // Applica classe al contenitore
+    //  classe al contenitore
     gridContainer.classList.remove("grid-layout", "list-layout");
     if(layoutVersion === "list"){
         gridContainer.classList.add("list-layout");
@@ -47,9 +42,9 @@ function populateGrid(data) {
         div.className = 'food-item';
         
         const difficultyColor =
-            recipe.difficulty === "Easy" ? "#37B35C" :
-            recipe.difficulty === "Medium" ? "#FFD93D" :
-            recipe.difficulty === "Hard" ? "#D16643":
+            recipe.difficulty === "Facile" ? "#37B35C" :
+            recipe.difficulty === "Medio" ? "#FFD93D" :
+            recipe.difficulty === "Difficile" ? "#D16643":
             "#a8a6a6ff";
 
         const imgSrc = layoutVersion === "list" 
@@ -77,15 +72,13 @@ function populateGrid(data) {
                 <div class="infoList">
                     <div class="list-right">
                         <h3>${recipe.title}</h3>
-                        <div>
+                        <div class="topstuff">
                             <div class="difficulty-wrapper">
                                 <span class="difficulty-text">
                                     <strong>Difficoltà:</strong> ${recipe.difficulty}
                                 </span>
                                 <div class="difficulty-bar-list" style="background:${difficultyColor};"></div>
                             </div>
-
-                            <p><strong>Allergeni:</strong> ${recipe.allergens?.join(", ") || "Nessuno"}</p>
                             <div class="top-right-info">
                                 <div class="info-box">${recipe.time || "N/A"}</div>
                                 <div class="info-box"><i class="fa fa-clock-o" style="color:#FFF8EF"></i></div>
